@@ -57,7 +57,9 @@ python manage.py createsuperuser
 python manage.py runserver
 ************************************
 Screenshots
-Admin Interface: 
+Admin Interface: ![image](https://github.com/user-attachments/assets/162bd756-c3ed-48df-8ebf-4f72c70a6046)
+![image](https://github.com/user-attachments/assets/b9fbb866-34f6-4030-a6c7-8feacaf5e195)
+
 
 Client List: ![all clients list](https://github.com/user-attachments/assets/47613e72-3f7e-48c0-a5a6-e7be67b6b06b)
 
