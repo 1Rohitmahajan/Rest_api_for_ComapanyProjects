@@ -1,0 +1,79 @@
+python -m venv venv
+.\venv\Scripts\activate
+pip install django
+
+django-admin startproject client_projects_manager
+cd client_projects_manager
+python manage.py startapp coreApp
+
+pip install djangorestframework
+pip install psycopg2-binary  # For PostgreSQL
+
+pip install django-cors-headers
+
+
+
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',  # or 'django.db.backends.mysql'
+        'NAME': 'newDBRohit_Manager',
+        'USER': 'postgres',
+        'PASSWORD': 'Rohit@#*123',
+        'HOST': 'localhost',
+        'PORT': '5432',  # or '3306' for MySQL
+    }
+}
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
+
+
+
+ CREATE TABLE "User" (
+     id SERIAL PRIMARY KEY,
+     username VARCHAR(255) UNIQUE NOT NULL,
+     email VARCHAR(255) UNIQUE NOT NULL,
+     password_hash TEXT NOT NULL,
+     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ );
+
+ CREATE TABLE "Client" (
+     id SERIAL PRIMARY KEY,
+     client_name VARCHAR(255) NOT NULL,
+     created_by INTEGER REFERENCES "User"(id),
+     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ );
+
+ CREATE TABLE "Project" (
+     id SERIAL PRIMARY KEY,
+     project_name VARCHAR(255) NOT NULL,
+     client_id INTEGER REFERENCES "Client"(id) ON DELETE CASCADE,
+     created_by INTEGER REFERENCES "User"(id),
+     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ );
+
+ CREATE TABLE "ProjectUser" (
+     project_id INTEGER REFERENCES "Project"(id) ON DELETE CASCADE,
+     user_id INTEGER REFERENCES "User"(id) ON DELETE CASCADE,
+     PRIMARY KEY (project_id, user_id)
+ );
+
+
+
+
+
