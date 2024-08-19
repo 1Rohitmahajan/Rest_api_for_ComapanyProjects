@@ -16,23 +16,27 @@ This project is a Django application for managing clients and projects. It utili
 Before you start, ensure you have the following installed:
 
 - Python 3.x
+- 
 - PostgreSQL
+- 
 - pip (Python package installer)
 
 
 1. **Clone the Repository**
 
-   Open your terminal and run the following command to clone the repository to your local machine:
+ Open your terminal and run the following command to clone the repository to your local machine:
 
-   git clone https://github.com/1Rohitmahajan/Rest_api_for_ComapanyProjects.git
+ git clone https://github.com/1Rohitmahajan/Rest_api_for_ComapanyProjects.git
 
-   
  git clone  https://github.com/1Rohitmahajan/Rest_api_for_ComapanyProjects.git
-Setup
+
+***Setup***
 1. Create a Virtual Environment
 
 python -m venv venv
+
 2. Activate the Virtual Environment
+
 On Windows:
 .\venv\Scripts\activate
 
@@ -43,18 +47,24 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 
-. Run Migrations
+Run Migrations
 
 python manage.py makemigrations
+
 python manage.py migrate
+
+
 
 14. Create Superuser
 python manage.py createsuperuser
 
 
+
 15. Run the Development Server
 
 python manage.py runserver
+
+
 ************************************
 Screenshots
 Admin Interface: ![image](https://github.com/user-attachments/assets/162bd756-c3ed-48df-8ebf-4f72c70a6046)
@@ -79,28 +89,43 @@ Project List: ![get all project list](https://github.com/user-attachments/assets
 
 
 
+
+
+
 Contributing
 Feel free to open issues or submit pull requests if you have suggestions or improvements.
 
 API Endpoints
+
 List all clients
 
 GET /api/clients/
+
 Create a new client
 
 POST /api/clients/
+
 Retrieve, update, or delete a client
 
 GET /api/clients/<id>/
+
 PUT /api/clients/<id>/
+
 PATCH /api/clients/<id>/
+
 DELETE /api/clients/<id>/
+
 Create a new project for a client
 
 POST /api/clients/<client_id>/projects/
+
 List all projects assigned to the logged-in user
 
+
 GET /api/projects/
+
+
+
 
 
 6. Configure the Database
@@ -110,18 +135,24 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'newDBRohit_Manager',
         'USER': 'postgres',
-        'PASSWORD': 'Rohit@#*123',
+        'PASSWORD': 'Rohit@#****',
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
+
+
+
+
+
 7. Add Installed Apps
+
+   
 Add the following to client_projects_manager/settings.py:
 INSTALLED_APPS = [
-    ...
+
     'rest_framework',
     'coreApp',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
