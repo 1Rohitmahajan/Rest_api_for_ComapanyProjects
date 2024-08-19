@@ -31,36 +31,30 @@ Before you start, ensure you have the following installed:
  git clone  https://github.com/1Rohitmahajan/Rest_api_for_ComapanyProjects.git
 
 ***Setup***
-1. Create a Virtual Environment
+#1. **Create a Virtual Environment**
 
-python -m venv venv
 
-2. Activate the Virtual Environment
+ python -m venv venv
 
-On Windows:
 .\venv\Scripts\activate
 
-On macOS/Linux:
-source venv/bin/activate
 
-4. Install Dependencies
+#2**Install Dependencies**
 
 pip install -r requirements.txt
 
-Run Migrations
 
 python manage.py makemigrations
 
 python manage.py migrate
 
 
+#4. Create Superuser
 
-14. Create Superuser
 python manage.py createsuperuser
 
 
-
-15. Run the Development Server
+#5. Run the Development Server
 
 python manage.py runserver
 
